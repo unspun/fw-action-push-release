@@ -15,6 +15,7 @@ then
   cp "upload_manifest.template.json" "$CLONE_DIR"
 elif ["$INPUT_TYPE" = "FW"]
 then
+  rm -rf "$INPUT_BASE_ARTIFACT-*"
   cp -R "$INPUT_SOURCE_FILE_MFG" "$CLONE_DIR"
   cp -R "$INPUT_SOURCE_FILE_UPLOAD" "$CLONE_DIR"
 fi

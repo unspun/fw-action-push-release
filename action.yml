@@ -19,6 +19,9 @@ inputs:
   type:
     description: 'Resource type (FW or BOOTLOADER)'
     required: true
+  base_artifact:
+    description: 'Base artifact for fw app'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -29,6 +32,7 @@ runs:
     - ${{ inputs.user-email }}
     - ${{ inputs.user-name }}
     - ${{ inputs.type }}
+    - ${{ inputs.base-artifact}}
   branding:
     icon: 'git-commit'
     color: 'green'
