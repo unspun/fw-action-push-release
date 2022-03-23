@@ -5,7 +5,6 @@ FROM ubuntu:20.04
 RUN apt update
 
 RUN apt install git
-RUN apt install rsync
 
 ADD entrypoint.sh /entrypoint.sh
 

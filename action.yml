@@ -1,0 +1,34 @@
+name: 'Push to fw-vega'
+description: 'Adds fw or bootloader resources to fw-vega bundle'
+inputs:
+  source_file_mfg:
+    description: 'MFG image for fw update'
+    required: false
+  source_file_upload:
+    description: 'Upload image for fw update'
+    required: false
+  commit_message:
+    desciption: 'Custom message for commit'
+    required: true
+  user_email:
+    description: 'Email for the commit'
+    required: true
+  user_name:
+    description: 'Github username for commit'
+    required: true
+  type:
+    description: 'Resource type (FW or BOOTLOADER)'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.source-file-mfg }}
+    - ${{ inputs.source-file-uplaod }}
+    - ${{ inputs.commit-message }}
+    - ${{ inputs.user-email }}
+    - ${{ inputs.user-name }}
+    - ${{ inputs.type }}
+  branding:
+    icon: 'git-commit'
+    color: 'green'
