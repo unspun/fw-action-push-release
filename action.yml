@@ -33,6 +33,3 @@ runs:
     - ${{ inputs.user-name }}
     - ${{ inputs.type }}
     - ${{ inputs.base-artifact}}
-  branding:
-    icon: 'git-commit'
-    color: 'green'
