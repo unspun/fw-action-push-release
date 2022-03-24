@@ -16,6 +16,7 @@ then
 elif [[ "$INPUT_TYPE" == "FW" ]]
 then
   rm -rf "$INPUT_BASE_ARTIFACT-*"
+  echo "Adding files: $INPUT_SOURCE_FILE_MFG & $INPUT_SOURCE_FILE_UPLOAD"
   cp -R "$INPUT_SOURCE_FILE_MFG" "$CLONE_DIR"
   cp -R "$INPUT_SOURCE_FILE_UPLOAD" "$CLONE_DIR"
 fi
