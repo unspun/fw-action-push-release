@@ -18,7 +18,7 @@ then
   cp "upload_manifest.template.json" "$CLONE_DIR"
 elif [[ "$INPUT_TYPE" == "$FW_STRING" ]]
 then
-  rm -rf "$INPUT_BASE_ARTIFACT-*"
+  rm -rf "$INPUT_BASE_ARTIFACT"-*
   echo "Adding files: $INPUT_SOURCE_FILE_MFG & $INPUT_SOURCE_FILE_UPLOAD"
   cp -R "$INPUT_SOURCE_FILE_MFG" "$CLONE_DIR"
   cp -R "$INPUT_SOURCE_FILE_UPLOAD" "$CLONE_DIR"
@@ -26,11 +26,6 @@ fi
 
 cd "$CLONE_DIR"
 git add .
-if git status | grep -q "Changes to be committed"
-then
-  git commit --message "$INPUT_COMMIT_MESSAGE"
-  echo "Pushing git commit"
-  git push -u origin HEAD:main
-else
-  echot "Nothing to commit"
-fi
+git commit --message "$INPUT_COMMIT_MESSAGE"
+echo "Pushing git commit"
+git push -u origin HEAD:main
