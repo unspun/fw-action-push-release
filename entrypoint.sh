@@ -26,6 +26,9 @@ fi
 
 cd "$CLONE_DIR"
 git add .
-git commit --message "$INPUT_COMMIT_MESSAGE"
-echo "Pushing git commit"
-git push -u origin HEAD:main
+if git status | grep -q "Changes to be committed"
+then
+  git commit --message "$INPUT_COMMIT_MESSAGE"
+  echo "Pushing git commit"
+  git push -u origin HEAD:main
+fi
