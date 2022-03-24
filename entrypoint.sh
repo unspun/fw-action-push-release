@@ -13,9 +13,9 @@ git clone --single-branch --branch main "https://x-access-token:$API_TOKEN_GITHU
 if [[ "$INPUT_TYPE" == "$BOOT_STRING" ]]
 then
   echo "Copying over bootloader resources"
-  cp -R "fw_upload" "$CLONE_DIR"
-  cp -R "upload_all" "$CLONE_DIR"
-  cp -R "upload_manifest.template.json" "$CLONE_DIR"
+  cp -R "tools/fw_upload" "$CLONE_DIR"
+  cp -R "tools/upload_all" "$CLONE_DIR"
+  cp -R "tools/update_manifest.template.json" "$CLONE_DIR"
 elif [[ "$INPUT_TYPE" == "$FW_STRING" ]]
 then
   rm -rf "$CLONE_DIR"/"$INPUT_BASE_ARTIFACT"-*
